@@ -1,0 +1,13 @@
+package com.example.mbarki_mohamed_yassir_project.Base
+
+import android.app.Application
+import androidx.appcompat.app.AppCompatDelegate
+import dagger.hilt.android.HiltAndroidApp
+
+@HiltAndroidApp
+class BaseApplication:Application() {
+    override fun onCreate() {
+        super.onCreate()
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+    }
+}
