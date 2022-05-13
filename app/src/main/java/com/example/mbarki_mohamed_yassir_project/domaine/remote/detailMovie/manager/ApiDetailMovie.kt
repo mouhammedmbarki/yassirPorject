@@ -7,9 +7,9 @@ import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface ApiDetailMovie {
-    @GET("movies/")
+    @GET("movies/{movie_id}")
     suspend fun getDetailMovieList(
-        @Query("api_key") apiKey: String,
-        @Path("movie_id") movie_id: Int
+        @Path("movie_id") movie_id: Int,
+        @Query("api_key") apiKey: String
     ): Response<RemoteDetailMovieResponse>
 }

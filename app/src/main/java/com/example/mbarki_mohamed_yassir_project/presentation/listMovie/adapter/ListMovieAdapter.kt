@@ -47,7 +47,7 @@ class ListMovieAdapter @Inject constructor(@ApplicationContext private val appli
             }
         }
     }
-    fun setMovieApdaterViewInetcation(MovieApdaterViewInetcation:MovieApdaterViewInetcation){
+    fun setMovieApdaterViewInetcation(movieApdaterViewInetcation:MovieApdaterViewInetcation){
         this.movieApdaterViewInetcation=movieApdaterViewInetcation
     }
     fun setData(movieList: List<UIMovieListModel>) {

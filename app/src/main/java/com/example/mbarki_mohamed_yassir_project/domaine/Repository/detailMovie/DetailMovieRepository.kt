@@ -21,8 +21,8 @@ class DetailMovieRepository constructor(
     override suspend fun loadDetailMovie(id: Int): Flow<DataState<UiDetailMovieModel>> =
         callbackFlow {
             send(DataState.Loading)
-            if (apiDetailMovie.getDetailMovieList(AppConstant.apiKey, id).isSuccessful) {
-                apiDetailMovie.getDetailMovieList(AppConstant.apiKey, id).body()?.let {
+            if (apiDetailMovie.getDetailMovieList(id,AppConstant.apiKey).isSuccessful) {
+                apiDetailMovie.getDetailMovieList(id,AppConstant.apiKey).body()?.let {
                     var localData = async {
                         remoteResponseDtoLocalDetailMoveMappingImp.mapDomainToDTO(it)
                     }
@@ -45,8 +45,9 @@ class DetailMovieRepository constructor(
                     DataState.Error(
                         Exception(
                             apiDetailMovie.getDetailMovieList(
-                                AppConstant.apiKey,
-                                id
+                                id,
+                                AppConstant.apiKey
+
                             ).errorBody().toString()
                         )
                     )
