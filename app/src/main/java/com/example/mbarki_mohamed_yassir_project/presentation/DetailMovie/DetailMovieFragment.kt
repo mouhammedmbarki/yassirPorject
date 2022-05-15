@@ -35,7 +35,7 @@ class DetailMovieFragment : Fragment() {
         val view = binding.root
         lifecycleScope.launchWhenStarted {
             id?.let {
-                viewModel.detailMovieIntent.send(DetailMovieIntent.loadMovie(it))
+        //        viewModel.detailMovieIntent.send(DetailMovieIntent.loadMovie(it))
             }
         }
         return view
